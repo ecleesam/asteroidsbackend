@@ -1,0 +1,14 @@
+C:\Users\3603ex\SENG programme\Asteroids-backend\asteroidsbackend\bin\Debug\net9.0\asteroidsbackend.exe
+C:\Users\3603ex\SENG programme\Asteroids-backend\asteroidsbackend\bin\Debug\net9.0\asteroidsbackend.deps.json
+C:\Users\3603ex\SENG programme\Asteroids-backend\asteroidsbackend\bin\Debug\net9.0\asteroidsbackend.runtimeconfig.json
+C:\Users\3603ex\SENG programme\Asteroids-backend\asteroidsbackend\bin\Debug\net9.0\asteroidsbackend.dll
+C:\Users\3603ex\SENG programme\Asteroids-backend\asteroidsbackend\bin\Debug\net9.0\asteroidsbackend.pdb
+C:\Users\3603ex\SENG programme\Asteroids-backend\asteroidsbackend\obj\Debug\net9.0\asteroidsbackend.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\3603ex\SENG programme\Asteroids-backend\asteroidsbackend\obj\Debug\net9.0\asteroidsbackend.AssemblyInfoInputs.cache
+C:\Users\3603ex\SENG programme\Asteroids-backend\asteroidsbackend\obj\Debug\net9.0\asteroidsbackend.AssemblyInfo.cs
+C:\Users\3603ex\SENG programme\Asteroids-backend\asteroidsbackend\obj\Debug\net9.0\asteroidsbackend.csproj.CoreCompileInputs.cache
+C:\Users\3603ex\SENG programme\Asteroids-backend\asteroidsbackend\obj\Debug\net9.0\asteroidsbackend.dll
+C:\Users\3603ex\SENG programme\Asteroids-backend\asteroidsbackend\obj\Debug\net9.0\refint\asteroidsbackend.dll
+C:\Users\3603ex\SENG programme\Asteroids-backend\asteroidsbackend\obj\Debug\net9.0\asteroidsbackend.pdb
+C:\Users\3603ex\SENG programme\Asteroids-backend\asteroidsbackend\obj\Debug\net9.0\asteroidsbackend.genruntimeconfig.cache
+C:\Users\3603ex\SENG programme\Asteroids-backend\asteroidsbackend\obj\Debug\net9.0\ref\asteroidsbackend.dll
