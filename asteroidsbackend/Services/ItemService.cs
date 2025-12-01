@@ -1,113 +1,80 @@
 using asteroidsbackend.Models;
+using asteroidsbackend.Models.Interfaces;
 using asteroidsbackend.Data;
 
-namespace asteroidsbackend.Services;
-
-public static class ItemService
+namespace asteroidsbackend.Services
 {
-    public static void AddItem()
+    public static class ItemService
     {
-        Console.Clear();
-        Console.WriteLine("CREATE ITEM");
-        Console.WriteLine("1. Weapon");
-        Console.WriteLine("2. Power-Up");
-        Console.Write("Choice: ");
-
-        string choice = Console.ReadLine();
-
-        if (choice == "1")
-            CreateWeapon();
-        else if (choice == "2")
-            CreatePowerUp();
-        else
-            Console.WriteLine("Invalid choice.");
-
-        Console.ReadLine();
-    }
-
-    private static void CreateWeapon()
-    {
-        Console.Write("Name: ");
-        string name = Console.ReadLine();
-
-        Console.Write("Damage: ");
-        int dmg = int.Parse(Console.ReadLine());
-
-        Console.Write("Fire Rate: ");
-        double rate = double.Parse(Console.ReadLine());
-
-        Weapon w = new Weapon
+        public static async Task AddItem(IItem item)
         {
-            Id = GameDatabase.NextId++,
-            Name = name,
-            Category = Category.Weapon,
-            Damage = dmg,
-            FireRate = rate
-        };
+            await GameDatabase.DbLock.WaitAsync();
+            try
+            {
+                item.Id = GameDatabase.NextId++;
+                GameDatabase.Items.Add(item);
+                Console.WriteLine("Item created");
+            }
+            finally
+            {
+                GameDatabase.DbLock.Release();
+            }
+        }
 
-        GameDatabase.Items.Add(w);
-        Console.WriteLine("Weapon added!");
-    }
-
-    private static void CreatePowerUp()
-    {
-        Console.Write("Name: ");
-        string name = Console.ReadLine();
-
-        Console.Write("Duration: ");
-        double dur = double.Parse(Console.ReadLine());
-
-        Console.Write("Effect Boost: ");
-        double boost = double.Parse(Console.ReadLine());
-
-        PowerUp p = new PowerUp
+        public static async Task<List<IItem>> GetItems()
         {
-            Id = GameDatabase.NextId++,
-            Name = name,
-            Category = Category.PowerUp,
-            Duration = dur,
-            EffectBoost = boost
-        };
+            await GameDatabase.DbLock.WaitAsync();
+            try
+            {
+                return GameDatabase.Items.ToList();
+            }
+            finally
+            {
+                GameDatabase.DbLock.Release();
+            }
+        }
 
-        GameDatabase.Items.Add(p);
-        Console.WriteLine("Power-Up added!");
+        public static async Task<IItem?> GetItemById(int id)
+        {
+            await GameDatabase.DbLock.WaitAsync();
+            try
+            {
+                return GameDatabase.Items.FirstOrDefault(x => x.Id == id);
+            }
+            finally
+            {
+                GameDatabase.DbLock.Release();
+            }
+        }
+
+        public static async Task UpdateItem(IItem item)
+        {
+            await GameDatabase.DbLock.WaitAsync();
+            try
+            {
+                var existingItem = GameDatabase.Items.FirstOrDefault(x => x.Id == item.Id);
+                if (existingItem == null) { Console.WriteLine("Not found."); return; }
+
+                // Update the item in the list
+                var index = GameDatabase.Items.IndexOf(existingItem);
+                GameDatabase.Items[index] = item;
+                Console.WriteLine("Updated item successfully!");
+            }
+            finally { GameDatabase.DbLock.Release(); }
+        }
+
+        public static async Task DeleteItem(int id)
+        {
+            await GameDatabase.DbLock.WaitAsync();
+            try
+            {
+                var item = GameDatabase.Items.FirstOrDefault(x => x.Id == id);
+                if (item == null) { Console.WriteLine("Not found."); return; }
+
+                GameDatabase.Items.Remove(item);
+                Console.WriteLine("Deleted item");
+            }
+            finally { GameDatabase.DbLock.Release(); }
+        }
     }
-
-    public static void ViewItems()
-    {
-        Console.Clear();
-        Console.WriteLine("ALL ITEMS");
-        foreach (var item in GameDatabase.Items)
-            item.Display();
-        Console.ReadLine();
-    }
-
-    public static void UpdateItem()
-    {
-        Console.Clear();
-        Console.Write("Enter ID to update: ");
-        int id = int.Parse(Console.ReadLine());
-
-        GameItem item = GameDatabase.Items.FirstOrDefault(x => x.Id == id);
-        if (item == null) { Console.WriteLine("Not found."); Console.ReadLine(); return; }
-
-        Console.Write("New Name: ");
-        item.Name = Console.ReadLine();
-        Console.WriteLine("Updated!");
-        Console.ReadLine();
-    }
-
-    public static void DeleteItem()
-    {
-        Console.Clear();
-        Console.Write("Enter ID to delete: ");
-        int id = int.Parse(Console.ReadLine());
-
-        GameItem item = GameDatabase.Items.FirstOrDefault(x => x.Id == id);
-        if (item == null) { Console.WriteLine("Not found."); Console.ReadLine(); return; }
-
-        GameDatabase.Items.Remove(item);
-        Console.WriteLine("Deleted!");
-        Console.ReadLine();
-    }   
 }

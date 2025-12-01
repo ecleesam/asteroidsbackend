@@ -1,47 +1,63 @@
 using asteroidsbackend.Models;
+using asteroidsbackend.Models.Interfaces;
 using asteroidsbackend.Data;
-using System.Runtime.InteropServices.Marshalling;
 
-namespace asteroidsbackend.Services;
-
-public static class AnalysisService
+namespace asteroidsbackend.Services
 {
-    public static void ShowCategoryCounts()
+    public static class AnalysisService
     {
-        Console.Clear();
+        public static async Task ShowCategoryCounts()
+        {
+            await GameDatabase.DbLock.WaitAsync();
+            try
+            {
+                var result = GameDatabase.Items
+                    .GroupBy(i => i.Category)
+                    .Select(g => new { g.Key, Count = g.Count() })
+                    .ToList();
 
-        var counts = GameDatabase.Items
-            .GroupBy(i => i.Category)
-            .Select(g => new { Category = g.Key, Count = g.Count() });
+                Console.WriteLine("\n=== Category Counts ===");
+                foreach (var r in result)
+                    Console.WriteLine($"{r.Key}: {r.Count}");
+            }
+            finally
+            {
+                GameDatabase.DbLock.Release();
+            }
+            
+            Console.Write("\nPress Enter to continue...");
+            Console.ReadLine();
+        }
 
-        foreach (var c in counts)
-            Console.WriteLine($"{c.Category}: {c.Count}");
-        
-        Console.ReadLine();
-    }
+        public static async Task ShowTop5Weapons()
+        {
+            await GameDatabase.DbLock.WaitAsync();
+            try
+            {
+                var top = GameDatabase.Items
+                    .OfType<Weapon>()
+                    .OrderByDescending(w => w.Damage)
+                    .Take(5)
+                    .ToList();
 
-    public static void ShowAverages()
-    {
-        Console.Clear();
-        var weapons = GameDatabase.Items.OfType<Weapon>();
-        var powerups = GameDatabase.Items.OfType<PowerUp>();
-
-        Console.WriteLine("Average Weapon Damage: " + weapons.Average(w => w.Damage));
-        Console.WriteLine("Average PowerUp Duration: " + powerups.Average(p => p.Duration));
-        Console.ReadLine();
-    }
-
-    public static void ShowTop5Weapons()
-    {
-        Console.Clear();
-        var top = GameDatabase.Items
-            .OfType<Weapon>()
-            .OrderByDescending(w => w.Damage)
-            .Take(5);
-
-        foreach (var w in top)
-            w.Display();
-
-        Console.ReadLine();
+                Console.WriteLine("\n=== Top 5 Weapons ===");
+                if (top.Count == 0)
+                {
+                    Console.WriteLine("No weapons found.");
+                }
+                else
+                {
+                    foreach (var w in top)
+                        w.Display();
+                }
+            }
+            finally
+            {
+                GameDatabase.DbLock.Release();
+            }
+            
+            Console.Write("\nPress Enter to continue...");
+            Console.ReadLine();
+        }
     }
 }

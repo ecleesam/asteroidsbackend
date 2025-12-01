@@ -1,12 +1,16 @@
-namespace asteroidsbackend.Models;
+using asteroidsbackend.Models.Interfaces;
 
-public class Weapon : GameItem
+namespace asteroidsbackend.Models
 {
-    public int Damage { get; set; }
-    public double FireRate { get; set; }
-
-    public override void Display()
+    public class Weapon : BaseItem, IWeapon
     {
-        Console.WriteLine($"{Id} - {Name} [Weapon] | DMG: {Damage} | FireRate: {FireRate}");
+        public int Damage { get; set; }
+        public double FireRate { get; set; }
+
+        public override void Display()
+        {
+            Console.WriteLine(
+                $"{Id} - {Name} [Weapon] | DMG:{Damage} | FireRate:{FireRate} | Val:{Value} | W:{Weight}");
+        }
     }
 }

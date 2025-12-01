@@ -1,12 +1,16 @@
-namespace asteroidsbackend.Models;
+using asteroidsbackend.Models.Interfaces;
 
-public class PowerUp : GameItem
+namespace asteroidsbackend.Models
 {
-    public double Duration { get; set; }
-    public double EffectBoost { get; set;}
-
-    public override void Display()
+    public class PowerUp : BaseItem, IPowerUp
     {
-        Console.WriteLine($"{Id} - {Name} [PowerUp] | Duration: {Duration}s | Boost: {EffectBoost}");
+        public double Duration { get; set; }
+        public double EffectBoost { get; set; }
+
+        public override void Display()
+        {
+            Console.WriteLine(
+                $"{Id} - {Name} [PowerUp] | Duration:{Duration}s | Boost:{EffectBoost} | Val:{Value} | W:{Weight}");
+        }
     }
 }

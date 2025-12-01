@@ -4,7 +4,7 @@ namespace asteroidsbackend.Menu
 {
     public static class MainMenu
     {
-        public static void Start()
+        public static async void Start()
         {
             while (true)
             {
@@ -18,12 +18,13 @@ namespace asteroidsbackend.Menu
 
                 switch (Console.ReadLine())
                 {
-                    case "1": ItemMenu.Start(); break;
-                    case "2": RandomDataService.GenerateSampleDataset(); break;
-                    case "3": AnalysisMenu.Start(); break;
+                    case "1": await ItemMenu.Start(); break;
+                    case "2": await RandomDataService.GenerateSampleDatasetAsync(); break;
+                    case "3": await AnalysisMenu.Start(); break;
                     case "4": return;
-                    default:
+                    default: 
                         Console.WriteLine("Invalid choice.");
+                        Console.Write("Press Enter to continue...");
                         Console.ReadLine();
                         break;
                 }

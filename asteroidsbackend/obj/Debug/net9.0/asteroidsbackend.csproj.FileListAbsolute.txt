@@ -12,3 +12,4 @@ C:\Users\3603ex\SENG programme\Asteroids-backend\asteroidsbackend\obj\Debug\net9
 C:\Users\3603ex\SENG programme\Asteroids-backend\asteroidsbackend\obj\Debug\net9.0\asteroidsbackend.pdb
 C:\Users\3603ex\SENG programme\Asteroids-backend\asteroidsbackend\obj\Debug\net9.0\asteroidsbackend.genruntimeconfig.cache
 C:\Users\3603ex\SENG programme\Asteroids-backend\asteroidsbackend\obj\Debug\net9.0\ref\asteroidsbackend.dll
+C:\Users\3603ex\SENG programme\Asteroids-backend\asteroidsbackend\obj\Debug\net9.0\asteroidsbackend.sourcelink.json
