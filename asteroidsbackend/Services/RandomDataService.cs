@@ -9,33 +9,43 @@ namespace asteroidsbackend.Services
 
         public static async Task GenerateSampleDatasetAsync()
         {
-            Console.WriteLine("Generating dataset...");
-
-            await GameDatabase.DbLock.WaitAsync();
             try
             {
-                GameDatabase.Items.Clear();
-                GameDatabase.NextId = 1;
+                Console.WriteLine("Generating dataset...");
+
+                await GameDatabase.DbLock.WaitAsync();
+                try
+                {
+                    GameDatabase.Items.Clear();
+                    GameDatabase.NextId = 1;
+                }
+                finally
+                {
+                    GameDatabase.DbLock.Release();
+                }
+
+                // Generate items in parallel
+                var weaponTasks = new List<Task>();
+                for (int i = 0; i < 10; i++)
+                    weaponTasks.Add(ItemService.AddItem(RandomWeapon()));
+
+                var powerUpTasks = new List<Task>();
+                for (int i = 0; i < 5; i++)
+                    powerUpTasks.Add(ItemService.AddItem(RandomPowerUp()));
+
+                await Task.WhenAll(weaponTasks.Concat(powerUpTasks));
+
+                Console.WriteLine("Random dataset generated successfully!");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"\nError generating dataset: {ex.Message}");
             }
             finally
             {
-                GameDatabase.DbLock.Release();
+                Console.Write("Press Enter to continue...");
+                Console.ReadLine();
             }
-
-            // Generate items in parallel2
-            var weaponTasks = new List<Task>();
-            for (int i = 0; i < 10; i++)
-                weaponTasks.Add(ItemService.AddItem(RandomWeapon()));
-
-            var powerUpTasks = new List<Task>();
-            for (int i = 0; i < 5; i++)
-                powerUpTasks.Add(ItemService.AddItem(RandomPowerUp()));
-
-            await Task.WhenAll(weaponTasks.Concat(powerUpTasks));
-
-            Console.WriteLine("Random dataset generated!");
-            Console.Write("Press Enter to continue...");
-            Console.ReadLine();
         }
 
         private static Weapon RandomWeapon()
