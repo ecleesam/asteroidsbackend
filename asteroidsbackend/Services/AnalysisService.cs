@@ -4,85 +4,31 @@ using asteroidsbackend.Data;
 
 namespace asteroidsbackend.Services
 {
-    public static class AnalysisService
+    public class AnalysisService
     {
-        public static async Task ShowCategoryCounts()
-        {
-            try
-            {
-                await GameDatabase.DbLock.WaitAsync();
-                try
-                {
-                    var result = GameDatabase.Items
-                        .GroupBy(i => i.Category)
-                        .Select(g => new { g.Key, Count = g.Count() })
-                        .ToList();
+        private readonly IItemRepository _repository;
 
-                    Console.WriteLine("\n=== Category Counts ===");
-                    if (result.Count == 0)
-                    {
-                        Console.WriteLine("No items found.");
-                    }
-                    else
-                    {
-                        foreach (var r in result)
-                            Console.WriteLine($"{r.Key}: {r.Count}");
-                    }
-                }
-                finally
-                {
-                    GameDatabase.DbLock.Release();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"\nError showing category counts: {ex.Message}");
-            }
-            finally
-            {
-                Console.Write("\nPress Enter to continue...");
-                Console.ReadLine();
-            }
+        public AnalysisService(IItemRepository repository)
+        {
+            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
 
-        public static async Task ShowTop5Weapons()
+        public async Task<Dictionary<Category, int>> GetCategoryCountsAsync()
         {
-            try
-            {
-                await GameDatabase.DbLock.WaitAsync();
-                try
-                {
-                    var top = GameDatabase.Items
-                        .OfType<Weapon>()
-                        .OrderByDescending(w => w.Damage)
-                        .Take(5)
-                        .ToList();
+            var items = await _repository.GetAllAsync();
+            return items
+                .GroupBy(i => i.Category)
+                .ToDictionary(g => g.Key, g => g.Count());
+        }
 
-                    Console.WriteLine("\n=== Top 5 Weapons ===");
-                    if (top.Count == 0)
-                    {
-                        Console.WriteLine("No weapons found.");
-                    }
-                    else
-                    {
-                        foreach (var w in top)
-                            w.Display();
-                    }
-                }
-                finally
-                {
-                    GameDatabase.DbLock.Release();
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"\nError showing top weapons: {ex.Message}");
-            }
-            finally
-            {
-                Console.Write("\nPress Enter to continue...");
-                Console.ReadLine();
-            }
+        public async Task<List<Weapon>> GetTop5WeaponsAsync()
+        {
+            var items = await _repository.GetAllAsync();
+            return items
+                .OfType<Weapon>()
+                .OrderByDescending(w => w.Damage)
+                .Take(5)
+                .ToList();
         }
     }
 }
