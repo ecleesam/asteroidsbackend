@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Cu1ifGm/UhU=",
+  "dgSpecHash": "9Mv1pO4s68U=",
   "success": true,
-  "projectFilePath": "C:\\Users\\3603ex\\SENG programme\\Asteroids-backend\\AsteroidsBackend.Tests\\AsteroidsBackend.Tests.csproj",
+  "projectFilePath": "c:\\Users\\3603ex\\SENG programme\\Asteroids-backend\\AsteroidsBackend.Tests\\AsteroidsBackend.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\3603ex\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\3603ex\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
@@ -13,6 +13,7 @@
     "C:\\Users\\3603ex\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.0\\microsoft.entityframeworkcore.9.0.0.nupkg.sha512",
     "C:\\Users\\3603ex\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.0\\microsoft.entityframeworkcore.abstractions.9.0.0.nupkg.sha512",
     "C:\\Users\\3603ex\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\9.0.0\\microsoft.entityframeworkcore.analyzers.9.0.0.nupkg.sha512",
+    "C:\\Users\\3603ex\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\9.0.0\\microsoft.entityframeworkcore.inmemory.9.0.0.nupkg.sha512",
     "C:\\Users\\3603ex\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\9.0.0\\microsoft.entityframeworkcore.relational.9.0.0.nupkg.sha512",
     "C:\\Users\\3603ex\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite\\9.0.0\\microsoft.entityframeworkcore.sqlite.9.0.0.nupkg.sha512",
     "C:\\Users\\3603ex\\.nuget\\packages\\microsoft.entityframeworkcore.sqlite.core\\9.0.0\\microsoft.entityframeworkcore.sqlite.core.9.0.0.nupkg.sha512",

@@ -20,7 +20,7 @@ namespace asteroidsbackend.Controllers
         public async Task<IActionResult> GenerateSampleData()
         {
             await _randomDataService.GenerateSampleDatasetAsync();
-            return Ok(new { message = "Sample data generated successfully." });
+            return Ok(new { message = "Sample data generated successfully" });
         }
     }
 }
