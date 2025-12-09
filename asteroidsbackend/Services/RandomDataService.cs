@@ -33,9 +33,14 @@ namespace asteroidsbackend.Services
 
         private Weapon RandomWeapon()
         {
+            string[] prefixes = { "Void", "Star", "Nebula", "Cosmic", "Plasma", "Quantum", "Hyper", "Solar" };
+            string[] types = { "Blaster", "Cannon", "Ray", "Repeater", "Launcher", "Beam", "Pulse" };
+            
+            string name = $"{prefixes[_rnd.Next(prefixes.Length)]} {types[_rnd.Next(types.Length)]}";
+
             return new Weapon
             {
-                Name = "Weapon " + _rnd.Next(100),
+                Name = name,
                 Category = Category.Weapon,
                 Damage = _rnd.Next(5, 30),
                 FireRate = Math.Round(_rnd.NextDouble() * 3, 2),
@@ -46,14 +51,19 @@ namespace asteroidsbackend.Services
 
         private PowerUp RandomPowerUp()
         {
+            string[] types = { "Shield", "Speed", "Damage", "Health", "Energy" };
+            string[] suffixes = { "Booster", "Amplifier", "Generator", "Cell", "Module" };
+
+            string name = $"{types[_rnd.Next(types.Length)]} {suffixes[_rnd.Next(suffixes.Length)]}";
+
             return new PowerUp
             {
-                Name = "PowerUp " + _rnd.Next(100),
+                Name = name,
                 Category = Category.PowerUp,
-                Duration = _rnd.Next(3, 12),
-                EffectBoost = Math.Round(_rnd.NextDouble() * 5, 2),
+                Duration = Math.Round(_rnd.NextDouble() * 30 + 5, 1),
+                EffectBoost = Math.Round(_rnd.NextDouble() * 2 + 1, 1),
                 Value = _rnd.Next(5, 100),
-                Weight = Math.Round(_rnd.NextDouble() * 1.5, 2)
+                Weight = Math.Round(_rnd.NextDouble() * 2, 2)
             };
         }
     }
