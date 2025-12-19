@@ -89,10 +89,6 @@ Asteroids-backend/
 │   ├── Models/             # Data Entities
 │   ├── Services/           # Business Logic
 │   └── Program.cs          # App Configuration
-├── FrontEnd/               # Game Client
-│   ├── index.html          # Entry point
-│   ├── script.js           # Game Loop & Logic
-│   └── api.js              # API Communication
 └── AsteroidsBackend.Tests/ # Unit Tests
 ```
 
