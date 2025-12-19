@@ -48,7 +48,7 @@ A full-stack project featuring a classic Asteroids game with a persistent backen
 ### 2. Setup the Frontend
 
 1.  Go to https://github.com/ecleesam/ecleesam.github.io
-1.  Open the `FrontEnd` folder.
+1.  Open the `src` folder.
 2.  Open `index.html` in your browser.
     *   **Recommended**: Use a local development server (like VS Code's "Live Server") to avoid CORS issues with file protocols.
     *   If using VS Code Live Server, right-click `index.html` and select "Open with Live Server".
