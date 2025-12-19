@@ -24,13 +24,13 @@ A full-stack project featuring a classic Asteroids game with a persistent backen
 - **Styling**: CSS3
 - **Communication**: Fetch API
 
-## 📋 Prerequisites
+## Prerequisites
 
 - [.NET 9.0 SDK](https://dotnet.microsoft.com/download/dotnet/9.0)
 - A modern web browser
 - (Optional) VS Code with "Live Server" extension
 
-## 🔧 Getting Started
+## Getting Started
 
 ### 1. Setup the Backend
 
@@ -53,7 +53,7 @@ A full-stack project featuring a classic Asteroids game with a persistent backen
     *   **Recommended**: Use a local development server (like VS Code's "Live Server") to avoid CORS issues with file protocols.
     *   If using VS Code Live Server, right-click `index.html` and select "Open with Live Server".
 
-## 🎮 How to Play
+## How to Play
 
 1.  **Register/Login**: Use the panel on the left to create an account.
 2.  **Controls**:
@@ -67,7 +67,7 @@ A full-stack project featuring a classic Asteroids game with a persistent backen
     - Click "Load Shop" to see items.
     - Buy items to upgrade your ship (logic for equipping items is handled in backend inventory).
 
-## 📚 API Documentation
+## API Documentation
 
 When the backend is running, you can explore the full API documentation via Swagger UI:
 - URL: [http://localhost:5000/swagger](http://localhost:5000/swagger)
@@ -79,7 +79,7 @@ When the backend is running, you can explore the full API documentation via Swag
 - `POST /api/shop/buy/{itemId}`: Purchase an item.
 - `GET /api/analysis/top-weapons`: View game statistics.
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 Asteroids-backend/
@@ -96,7 +96,7 @@ Asteroids-backend/
 └── AsteroidsBackend.Tests/ # Unit Tests
 ```
 
-## 🧪 Running Tests
+## Running Tests
 
 To run the backend unit tests:
 
