@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9Mv1pO4s68U=",
+  "dgSpecHash": "lN5wXIAjuGs=",
   "success": true,
-  "projectFilePath": "c:\\Users\\3603ex\\SENG programme\\Asteroids-backend\\AsteroidsBackend.Tests\\AsteroidsBackend.Tests.csproj",
+  "projectFilePath": "C:\\Users\\3603ex\\SENG programme\\Asteroids-backend\\AsteroidsBackend.Tests\\AsteroidsBackend.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\3603ex\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\3603ex\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",

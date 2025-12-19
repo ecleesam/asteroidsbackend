@@ -3019,11 +3019,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "c:\\Users\\3603ex\\SENG programme\\Asteroids-backend\\AsteroidsBackend.Tests\\AsteroidsBackend.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\3603ex\\SENG programme\\Asteroids-backend\\AsteroidsBackend.Tests\\AsteroidsBackend.Tests.csproj",
       "projectName": "AsteroidsBackend.Tests",
-      "projectPath": "c:\\Users\\3603ex\\SENG programme\\Asteroids-backend\\AsteroidsBackend.Tests\\AsteroidsBackend.Tests.csproj",
+      "projectPath": "C:\\Users\\3603ex\\SENG programme\\Asteroids-backend\\AsteroidsBackend.Tests\\AsteroidsBackend.Tests.csproj",
       "packagesPath": "C:\\Users\\3603ex\\.nuget\\packages\\",
-      "outputPath": "c:\\Users\\3603ex\\SENG programme\\Asteroids-backend\\AsteroidsBackend.Tests\\obj\\",
+      "outputPath": "C:\\Users\\3603ex\\SENG programme\\Asteroids-backend\\AsteroidsBackend.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\3603ex\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -3038,8 +3038,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "c:\\Users\\3603ex\\SENG programme\\Asteroids-backend\\asteroidsbackend\\asteroidsbackend.csproj": {
-              "projectPath": "c:\\Users\\3603ex\\SENG programme\\Asteroids-backend\\asteroidsbackend\\asteroidsbackend.csproj"
+            "C:\\Users\\3603ex\\SENG programme\\Asteroids-backend\\asteroidsbackend\\asteroidsbackend.csproj": {
+              "projectPath": "C:\\Users\\3603ex\\SENG programme\\Asteroids-backend\\asteroidsbackend\\asteroidsbackend.csproj"
             }
           }
         }
