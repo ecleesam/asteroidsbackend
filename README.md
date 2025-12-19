@@ -2,7 +2,7 @@
 
 A full-stack project featuring a classic Asteroids game with a persistent backend for user accounts, a shop system, and data analysis.
 
-## 🚀 Features
+## Features
 
 - **Classic Asteroids Gameplay**: Fly, shoot, and survive waves of asteroids.
 - **User System**: Secure registration and login (JWT Authentication).
@@ -11,7 +11,7 @@ A full-stack project featuring a classic Asteroids game with a persistent backen
 - **Data Analysis**: Backend endpoints to analyze game item statistics.
 - **RESTful API**: Built with ASP.NET Core 9.0.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 ### Backend
 - **Framework**: ASP.NET Core 9.0 (Web API)
